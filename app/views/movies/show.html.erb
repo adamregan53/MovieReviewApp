@@ -1,0 +1,39 @@
+<h1><%= @movie.title %></h1>
+
+<p><%= @movie.body %></p>
+
+<ul>
+  <li><%= link_to "Edit", edit_movie_path(@movie) %></li>
+  <li><%= link_to "Destroy", movie_path(@movie), data: {
+    turbo_method: :delete,
+    turbo_confirm: "Are you sure?"
+  } %></li>
+</ul>
+
+<h2>Reviews</h2>
+<% @movie.reviews.each do |review| %>
+  <p>
+    <strong>Reviewer:</strong>
+    <%= review.reviewer %>
+  </p>
+
+  <p>
+    <strong>Review:</strong>
+    <%= review.body %>
+  </p>
+<% end %>
+
+<h2>Add a review:</h2>
+<%= form_with model: [ @movie, @movie.reviews.build ] do |form| %>
+  <p>
+    <%= form.label :reviewer %><br>
+    <%= form.text_field :reviewer %>
+  </p>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

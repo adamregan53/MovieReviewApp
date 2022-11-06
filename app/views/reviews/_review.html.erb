@@ -1,0 +1,17 @@
+ <% unless review.archived? %>
+  <p>
+    <strong>Reviewer:</strong>
+    <%= review.reviewer %>
+  </p>
+
+  <p>
+    <strong>Review:</strong>
+    <%= review.body %>
+  </p>
+
+  <%= link_to "Delete Review", [review.movie, review], data: {
+    turbo_method: :delete,
+    turbo_confirm: "Are you sure?"
+  } %>
+</p>
+<% end %>

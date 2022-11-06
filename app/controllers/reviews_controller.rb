@@ -4,9 +4,16 @@ class ReviewsController < ApplicationController
         @review = @movie.reviews.create(review_params)
         redirect_to movie_path(@movie)
       end
+
+      def destroy
+        @movie = Movie.find(params[:movie_id])
+        @review = @movie.reviews.find(params[:id])
+        @review.destroy
+        redirect_to movie_path(@movie), status: :see_other
+      end
     
       private
         def review_params
-          params.require(:review).permit(:reviewer, :body)
+          params.require(:review).permit(:reviewer, :body, :status)
         end
 end

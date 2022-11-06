@@ -1,10 +1,14 @@
 <h1>Movies</h1>
 
+This site has <%= Movie.public_count %> movies!
+
 <ul>
     <% @movies.each do |movie| %>
-        <li>
-            <%= link_to movie.title, movie %>
-        </li>
+        <% unless movie.archived? %>
+            <li>
+                <%= link_to movie.title, movie %>
+            </li>
+        <% end %>
     <% end %>
 </ul>
 

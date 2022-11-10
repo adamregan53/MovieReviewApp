@@ -6,7 +6,10 @@ This site has <%= Movie.public_count %> movies!
     <% @movies.each do |movie| %>
         <% unless movie.archived? %>
             <li>
-                <%= link_to movie.title, movie %>
+            <div class = "post-wrapper">
+                <h2 class = "title"><%= link_to movie.title, movie %></h2>
+                <p class = "date">Published <%= movie.created_at.strftime("%m/%d/%Y %H:%M") %></p>
+            </div>
             </li>
         <% end %>
     <% end %>

@@ -2,6 +2,7 @@
 
 <p><%= @movie.body %></p>
 
+
 <ul>
   <li><%= link_to "Edit", edit_movie_path(@movie) %></li>
   <li><%= link_to "Destroy", movie_path(@movie), data: {
@@ -15,3 +16,5 @@
 
 <h2>Add a review:</h2>
 <%= render 'reviews/form' %>
+
+<li><%= link_to "Home", movies_path %></li>

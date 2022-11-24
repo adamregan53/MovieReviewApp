@@ -2,6 +2,8 @@
 
 <p><%= @movie.body %></p>
 
+<p>Posted by <%=  %></p>
+
 
 <ul>
   <li><%= link_to "Edit", edit_movie_path(@movie) %></li>
@@ -17,4 +19,3 @@
 <h2>Add a review:</h2>
 <%= render 'reviews/form' %>
 
-<li><%= link_to "Home", movies_path %></li>
